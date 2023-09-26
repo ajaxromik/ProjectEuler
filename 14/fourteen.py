@@ -16,6 +16,6 @@ def countSequence(start):
 
 countsList = list(map(countSequence, range(1,1000000)))
 max = max(countsList)
-index = countsList.index(max)
+number = countsList.index(max) + 1
 
-print("max is {}\nindex is {}".format(max, index))
+print("max is {}\nthe number is {}".format(max, number))
