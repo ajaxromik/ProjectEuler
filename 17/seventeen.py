@@ -4,8 +4,8 @@ def intToText(number):
     if number > 999:
         total = 'one thousand'
 
-    elif number > 99:
-        total = intToText(int(number / 100)) + ' hundred and ' intToText(number % 100)
+    elif number > 99: # fix one hundred, one hundred and [0]
+        total = intToText(int(number / 100)) + ('' if number % 100 == 0 else ' hundred and ' + intToText(number % 100))
 
     elif number > 19:
         twenties = {
@@ -18,7 +18,7 @@ def intToText(number):
             8 : 'eighty',
             9 : 'ninety'
         }
-        total = twenty[int(number / 10)] + '-' + intToText(number % 10)
+        total = twenties[int(number / 10)] + ('' if number % 10 == 0 else '-' + intToText(number % 10))
 
     elif number > 9:
         tens = {
