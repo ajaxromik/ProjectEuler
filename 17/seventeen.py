@@ -53,7 +53,7 @@ def intToText(number):
     return total
 
 count = 0
-for i in range(1, 6):
+for i in range(1, 1001):
     textVer = intToText(i)
     trimVer = re.sub(r"[^a-zA-Z]", "", textVer)
     count += len(trimVer)
