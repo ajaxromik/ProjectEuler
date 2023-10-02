@@ -1,11 +1,12 @@
-# intToText can only handle numbers in the range [1,1000]
+import re
+
 def intToText(number):
     total = ''
     if number > 999:
         total = 'one thousand'
 
     elif number > 99: # fix one hundred, one hundred and [0]
-        total = intToText(int(number / 100)) + ('' if number % 100 == 0 else ' hundred and ' + intToText(number % 100))
+        total = intToText(int(number / 100)) + (' hundred' if number % 100 == 0 else ' hundred and ' + intToText(number % 100))
 
     elif number > 19:
         twenties = {
@@ -50,3 +51,12 @@ def intToText(number):
         total = ones[number]
 
     return total
+
+count = 0
+for i in range(1, 6):
+    textVer = intToText(i)
+    trimVer = re.sub(r"[^a-zA-Z]", "", textVer)
+    count += len(trimVer)
+    print(trimVer)
+
+print("Total letters: %s" % count)
